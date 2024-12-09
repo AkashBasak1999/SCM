@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="usertemp/uBase::layout(~{::section})">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<section>
+		<div>
+			<h1 class="text-center">Hare Krishna</h1>
+			<div class="card-body">
+				<h2 class="text-center">Contact</h2>
+				<!-- showing contact in the form of a table from bootstrap table-->
+				<!-- responsive means in the mobile also the webpage will run properly -->
+				<!-- to make the page responsive we can put the class inside a div that represents responsive() -->
+				<div class="table-responsive">
+				<table class="table">
+					<thead>
+						<tr>
+							<th scope="col">Id</th>
+							<th scope="col">Name</th>
+							<th scope="col">Email</th>
+							<th scope="col">Phone</th>
+							<th scope="col">Work</th>
+							<th scope="col" class="text-center">Action</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="c:${list}">
+							<td th:text="${c.id}">id</td>
+							<td th:text="${c.name}"> name</td>
+							<td> <a th:href="@{'/user/contact_details/'+${c.id}}" style="color:black"><span th:text="${c.email}"></span></a></td>
+							<td th:text="${c.phone}">phone</td>
+							<td th:text="${c.work}">work</td>
+
+							<td class="text-center">
+									<a class="btn btn-danger" th:href="@{'/user/delete/'+${c.id}}">Delete</a>
+									<a class="btn btn-primary" th:href="@{'/user/update/'+${c.id}}">Update</a>
+							</td>
+
+						</tr>
+					</tbody>
+				</table>
+				</div>
+				<nav aria-label="Page navigation example">
+					<ul class="pagination">
+						<li th:if="${currentpage!=0}" class="page-item"><a th:href="@{'/user/show-contact/'+${currentpage-1}}" class="page-link" href="#">Previous</a></li>
+						
+						<!-- by using this classappend whatever page we are in that page will be highlighted below -->
+						<li th:classappend="${currentpage==i-1?'active':''}" th:each="i:${#numbers.sequence(1,totalpages)}" class="page-item">
+						<a th:href="@{'/user/show-contact/'+${i-1}}" class="page-link" href="#"><span th:text="${i}"></span></a></li>
+						
+						<li th:if="${currentpage+1!=totalpages}" class="page-item"><a th:href="@{'/user/show-contact/'+${currentpage+1}}"class="page-link" href="#">Next</a></li>
+					</ul>
+				</nav>
+			</div>
+		</div>
+		
+		<script>
+		$(document).ready(()=>{
+			$(".item").removeClass("active");
+			$("#view-link").addClass("active");
+		});
+		</script>
+	</section>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="usertemp/uBase::layout(~{::section})">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<section>
+		
+		<div class="mt-5">
+			<h1 class="text-center">Hare Krishna</h1>
+			<div class="card-body">
+				<h2 class="text-center">Contact</h2>
+		 
+				<!-- showing contact in the form of a table from bootstrap table-->
+			
+			<div class="list-group">
+			  <a href="#" class="list-group-item list-group-item-action list-group-item-light"><span th:text="${details.id}"></span></a>					
+			  <a href="#" class="list-group-item list-group-item-action list-group-item-primary"><span th:text="${details.name}"></span></a>
+			  <a href="#" class="list-group-item list-group-item-action list-group-item-secondary"><span th:text="${details.secondName}"></span></a> 
+			  <a href="#" class="list-group-item list-group-item-action list-group-item-success"><span th:text="${details.phone}"></span></a>
+			  <a href="#" class="list-group-item list-group-item-action list-group-item-danger"><span th:text="${details.email}"></span></a>
+			  <a href="#" class="list-group-item list-group-item-action list-group-item-warning"><span th:text="${details.work}"></span></a>
+			</div>
+			</div>
+		</div>
+	</section>
+</body>
+</html>
+
+

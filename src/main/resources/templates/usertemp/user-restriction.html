@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="usertemp/uBase::layout(~{::section})">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<section>
+		<div class="text-center mt-5">
+		<h1>You have entered invalid Customer Id</h1>
+		</div>
+		<div class="text-center">
+		<a class="btn btn-primary mt-3" th:href="@{/user/show-contact/0}">Back</a>
+		</div>
+	</section>
+</body>
+</html>

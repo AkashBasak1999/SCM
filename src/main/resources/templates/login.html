@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="Base::layout(~{::section})">
+<head>
+<meta charset="UTF-8">
+<title></title>
+
+</head>
+<body>
+	<section>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-8 offset-md-2">
+					<div class="my-card" style="margin: 30px">
+
+						<div class="container text-center">
+							<img style="width: 100px" src="/Images/add-user.png">
+						</div>
+						<h1 style="text-align: center">login</h1>
+						<form novalidate action="" th:action="@{/show}" method="post">
+							<!-- Bootstrap form starting-->
+
+							<div class="form-group">
+								<label for="name_field">name</label> <input name="name"
+									type="text" class="form-control" />
+
+							</div>
+
+							<div class="form-group">
+								<label for="password_field">password</label> <input
+									name="password" type="text" class="form-control" />
+							</div>
+
+							<button type="submit" class="btn btn-primary">Submit</button>
+							<!-- Bootstrap form ending-->
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</section>
+</body>
+</html>

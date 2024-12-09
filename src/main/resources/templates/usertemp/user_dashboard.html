@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="usertemp/uBase::layout(~{::section})">
+
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<section>
+		<div>
+			<h1 class="text-center">Hare Krishna</h1>
+			
+			<h3>
+			<b>Welcome,</b>
+			</h3>
+			<h3 th:text="${user.name}"></h3>
+			<h3 th:text="${user.email}"></h3>
+			
+		</div>
+		
+		<script>
+		$(document).ready(()=>{
+			$(".item").removeClass("active");//if any class is added with active (previous iterated classes) remove that first 
+			$("#home-link").addClass("active");//all the home-link class will be added with active class
+		});
+		</script>
+		
+	</section>
+</body>
+</html>

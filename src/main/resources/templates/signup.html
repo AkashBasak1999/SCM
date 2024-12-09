@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="Base::layout(~{::section})">
+<head>
+<meta charset="UTF-8">
+<title>Home Page</title>
+</head>
+
+
+<!-- class="col-md-8 offset-md-2"
+this means total grid should be 12 unit left+center+right=12
+so center+right=8+2=10 left consists of 2 the 12-10=2
+ -->
+
+<!-- download icons form the flaticon in google  -->
+<body>
+	<section>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-8 offset-md-2">
+					<div class="my-card" style="margin: 30px">
+						
+						<div class="container text-center">
+							<img style="width: 100px" src="/Images/add-user.png">
+						</div>
+						<h1 style="text-align: center">SignUp page</h1>
+						
+						
+						<form novalidate action="" th:action="@{/do_Register}" method="post" th:object="${user}">
+							<!-- Bootstrap form starting-->
+
+							<div class="form-group">
+								<label for="name_field">name</label> <input name="name"
+									type="text" class="form-control" th:classappend="${#fields.hasErrors('name')?'is-invalid':''}"
+									id="name_field"
+									aria-describedby="emailHelp" placeholder="Enter name" required
+									th:value="${user.name}"
+									/>
+									<div 
+										th:each="e:${#fields.errors('name')}" th:text="${e}" id="validationServer03Feedback" class="invalid-feedback">
+									</div>
+							</div>
+
+							<div class="form-group">
+								<label for="email_field">email</label> <input name="email"
+									type="email" class="form-control" id="email_field"
+									aria-describedby="emailHelp" placeholder="Enter email" required
+									 />
+							</div>
+
+							<div class="form-group">
+								<label for="password_field">password</label> <input
+									name="password" type="password" class="form-control"
+									id="password_field" aria-describedby="emailHelp"
+									placeholder="Enter password" required />
+							</div>
+
+							<div class="form-group" style="padding: 20px 0px 20px 0px">
+								<textarea name="about" th:value="${user.about}"
+									placeholder="Enter Something about Yourself" rows="10"
+									class="form-control"></textarea>
+							</div>
+
+
+							<!-- Terms and condition agreement -->
+							<label><input name="agreement" type="radio" id="agree">I
+								agree to the terms and conditions</label><br>
+
+							<button type="submit" class="btn btn-primary">Submit</button>
+							<button type="reset" class="btn btn-primary">Reset</button>
+							<!-- Bootstrap form ending-->
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+</body>
+</html>
